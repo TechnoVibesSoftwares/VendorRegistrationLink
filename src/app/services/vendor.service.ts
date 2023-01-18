@@ -15,6 +15,6 @@ export class VendorRegistrationService {
   constructor(private http: HttpClient) { }
 
   VendorService(data: any){
-    return this.http.post(`${this.url}/welcome`,data);
+    return this.http.post(`${this.url}/register`,data);
   }
 }

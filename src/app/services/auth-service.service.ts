@@ -4,7 +4,7 @@ import { map, switchMap  } from "rxjs/operators";
 import { JwtHelperService } from "@auth0/angular-jwt";
 import {Storage} from '@ionic/storage';
 import { Platform } from '@ionic/angular';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpInterceptor } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class AuthService {
 
   userInfo = new BehaviorSubject(null);
   jwtHelper = new JwtHelperService();
-  checkUserObs: Observable<any>;
+checkUserObs  : Observable<any>;
 
   constructor(
     private storage: Storage,

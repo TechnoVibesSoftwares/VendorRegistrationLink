@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./vregister.page.scss'],
 })
 export class VregisterPage implements OnInit {
-  
-  public errorMessage: string | undefined;
+ 
+  public errorMessage: string;
 
   data={
     gstNo:'',
@@ -37,43 +37,45 @@ export class VregisterPage implements OnInit {
     ifscCode:'',
     branch:''
    };
+ 
 
-  constructor(private toastController: ToastController,private vendorRegistrationService:VendorRegistrationService, private router: Router,
-    ) { }
 
+  constructor(private VendorRegistrationService: VendorRegistrationService,private toastController: ToastController,private router: Router) { }
   ngOnInit() {
   }
-  doSubmitForm(){
-    
-console.log("Try to submit form");
-console.log("Data",this.data);
 
- 
+  doSubmitForm(){
+    console.log('Try to submit form');
+    console.log('DATA ',this.data);
+
     if(this.data.emailId==='' || this.data.password==='')
     {
       this.presentToast('Fields can not be empty');
 
     }else{
-      this.vendorRegistrationService.VendorService(this.data).subscribe(
-        response=>{
-          console.log(response);
-          this.presentToast('successfully');
-        },error=>{
-    console.log("Error form server :"+ error);
-    this.presentToast(error);
-        }
-      )
-      // alert(' registration successfully');
-      // this.router.navigateByUrl('/home');
+    this.VendorRegistrationService.VendorService(this.data).subscribe(
+      response=>{
+        console.log(response);
+        this.presentToast('Vendor Successfully Registered');
+        this.router.navigateByUrl('/welcome');
+    },
+      error=>{
 
-    }
+        console.log('Error from server : ' + error);
+        this.presentToast(error);
+       }
 
-} 
-async presentToast(msg: string) {
-  const toast = await this.toastController.create({
-   message: msg,
-   duration: 2000,
-  });
- await toast.present();
-}
+    );
+  }
+  }
+
+  async presentToast(msg: string) {
+     const toast = await this.toastController.create({
+      message: msg,
+      duration: 2000,
+     });
+    await toast.present();
+  }
+
+
 }

@@ -5,22 +5,56 @@
   <ion-header translucent>
    
   </ion-header>
-  <ion-content fullscreen>
-    <ion-card  >
+ 
+  <ion-content >
+    
+    <ion-card>
+     
       <!--<img src="https://www.shutterstock.com/image-illustration/modern-interior-design-salon-3d-600w-602081057.jpg" width="100%" height="30%"/>-->
       <ion-card-header>
-        <ion-card-subtitle>  </ion-card-subtitle>
-        <ion-card-title>FRANSALON MERCHANT  </ion-card-title>
+       <img src='https://aniportalimages.s3.amazonaws.com/media/details/beauty-salon-3277314_1280_IYzTbcB.jpg'>
+         
+        <ion-card-title>Vendor Registration </ion-card-title>
       </ion-card-header><br>
       <ion-card-content>
         
-     <ion-button color="dark" expand="block" routerLink="/vregister">VENDOR  REGISTER</ion-button> <br><br>
+     <ion-button color="dark" expand="block" shape="round" routerLink="/vregister">VENDOR  REGISTER</ion-button> <br><br>
    
     
-      <ion-button type="submit" color="dark" expand="block"  fill="outline"  routerLink="/list"> VENDOR LIST</ion-button>
-    
-      </ion-card-content>
+      <ion-button type="submit" color="dark" shape="round" expand="block"  fill="outline"  routerLink="/list"> VENDOR LIST</ion-button><br><br>
       
-    </ion-card>
-  </ion-content>
-</ion-app>
+      <ion-button id="open-modal" color="dark" shape="round"expand="block"> ADD YOUR ROLE</ion-button>
+      </ion-card-content>
+      </ion-card>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>   </ion-title>
+        </ion-toolbar>
+      </ion-header>
+    
+   
+        <p>{{ message }}</p>
+        <ion-modal trigger="open-modal"  >
+          <ng-template>
+            <ion-header>
+              <ion-toolbar>
+                <ion-buttons slot="start">
+                  <ion-button (click)="cancel()">Cancel</ion-button>
+                </ion-buttons>
+                <ion-title> </ion-title>
+                <ion-buttons slot="end">
+                  <ion-button (click)="submit()" [strong]="true">Submit</ion-button>
+                </ion-buttons>
+              </ion-toolbar>
+            </ion-header>
+            <ion-content class="ion-padding">
+          
+
+              <ion-item lines="full" >
+                <ion-label position="floating"> Enter your Role  </ion-label>
+                <ion-input type="text"  [(ngModel)]="name" required></ion-input>
+              </ion-item>
+            </ion-content>
+          </ng-template>
+        </ion-modal>
+ 

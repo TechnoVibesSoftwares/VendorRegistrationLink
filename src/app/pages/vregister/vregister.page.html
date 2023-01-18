@@ -1,9 +1,12 @@
  
 
-  <ion-header translucent>
-    
+  <ion-header  >
+    <ion-toolbar>
+      <ion-back-button slot="start" color="dark"></ion-back-button>
+    </ion-toolbar>
+
   </ion-header>
-  <ion-content fullscreen>
+  <ion-content  >
     
     <ion-card>
       
@@ -16,7 +19,7 @@
       <ion-card-content>
         <ion-item lines="full">
           <ion-label position="floating"> GST/Gumasta No</ion-label>
-          <ion-input type="text"  [(ngModel)]="data.gstNo"name="gstNo"   required></ion-input>
+          <ion-input type="text"  [(ngModel)]="data.gstNo" name="gstNo"   required></ion-input>
         </ion-item>
         <ion-item lines="full">
           <ion-label position="floating"> Store Name</ion-label>
@@ -81,7 +84,7 @@
         ><br />
         <ion-item>
           <ion-label>Store Category</ion-label>
-          <ion-select class="custom-options" interface="popover"  name="storeCategory"  name="storeCategory" [(ngModel)]="data.storeCategory">
+          <ion-select class="custom-options" interface="popover"    name="storeCategory" [(ngModel)]="data.storeCategory">
             <ion-select-option value="Platinum" class="brown-option">Platinum</ion-select-option>
             <ion-select-option value="Gold">Gold</ion-select-option>
             <ion-select-option value="Silver">Silver</ion-select-option>
@@ -100,7 +103,7 @@
         </ion-item><br />
         <ion-item>
           <ion-label>Revenue Reports</ion-label>
-          <ion-select class="custom-options" interface="popover"name="Revenue" [(ngModel)]="data.revenue" >
+          <ion-select class="custom-options" interface="popover" name="Revenue" [(ngModel)]="data.revenue" >
             <ion-select-option value="brown" class="brown-option"
               >Monthly</ion-select-option
             >
@@ -132,7 +135,7 @@
         <br />
      
         
-            <ion-button type="submit" color="dark" expand="block" (click)="doSubmitForm()" >Register</ion-button
+            <ion-button type="submit" color="dark" expand="block" (click)="doSubmitForm()">Register</ion-button
             >
          
        <br><br>
@@ -145,3 +148,4 @@
     </ion-card>
   </ion-content>
 
+  
